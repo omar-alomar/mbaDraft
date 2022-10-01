@@ -10,10 +10,17 @@ module.exports = {
       },
       colors: {
         mbaRed: '#6B293C',
-        hoverRed: 'B85873',
-        grey: 'F5F5F5'
+        hoverRed: '#B85873',
+        'submit': {
+          DEFAULT: '#34CF7F',
+          'hover': '#289E61'
+        },
+        'edit': {
+          DEFAULT: '#E4B538',
+          'hover': '#E8C76D'
+        }
       }
-    }
+    },
   },
   plugins: [],
 }
