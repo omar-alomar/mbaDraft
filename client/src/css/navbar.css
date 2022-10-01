@@ -1,0 +1,28 @@
+.navbar {
+    /* display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 20%; */
+    /* background-color: #6B293C; */
+    color: #fff;
+}
+
+.navbar__item {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.navbar__item:hover {
+    background-color: #B85873;
+    cursor: pointer;
+}
+.navbar__item-text, .navbar__item-img {
+    margin: 2px;
+}
+.navbar__item-text {
+    padding-left: 6px;
+}
+.navbar__item__profile-img {
+    height: 500px;
+    width: auto;
+}

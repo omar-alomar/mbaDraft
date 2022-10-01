@@ -1,0 +1,20 @@
+.contacts__form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contacts__form__input, .contacts__form__label {
+    margin: 6px;
+}
+.contacts__form__input {
+    border: 1px solid;
+}
+
+.contacts__form__submit {
+    border: 1px solid;
+}
+
+.contacts__form__submit:hover {
+    cursor: pointer;
+}
