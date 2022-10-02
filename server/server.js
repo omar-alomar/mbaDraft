@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://admin:admin@mbadraft.ipntxsb.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
 
 app.use(
     cors({
         origin: 'http://localhost:3000'
     })
 )
+
 app.use(express.json());
 
 var server = app.listen(8081, function () {
@@ -20,4 +26,13 @@ app.post('/addContact', (req, res) => {
     const myObj = req.body
     console.log(myObj)
     res.send(myObj)
+
+    try {
+        const database = client.db('mbaDraft');
+        const contacts = database.collection('contacts');
+        contacts.insertOne(myObj)
+    } finally {
+        // Ensures that the client will close when you finish/error
+        client.close();
+    }
 })
