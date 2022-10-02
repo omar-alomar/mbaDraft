@@ -20,6 +20,17 @@ const Contacts = () => {
       })
   }
 
+  const getContacts = () => {
+    axios.get('http://localhost:8081/getContacts')
+      .then((res) => {
+        console.log("it worked");
+        
+    })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
   return (
     <div className="contacts">
       <form className="contacts__form" onSubmit={handleSubmit}>
@@ -34,6 +45,9 @@ const Contacts = () => {
 
         <input type="submit" className="contacts__form__submit"></input>
       </form>
+      <div className="contacts__cards">
+      <button onClick={getContacts}>xxx</button>
+      </div>
     </div>
 
   )

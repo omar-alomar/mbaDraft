@@ -24,13 +24,25 @@ var server = app.listen(8081, function () {
 
 app.post('/addContact', (req, res) => {
     const myObj = req.body
-    console.log(myObj)
+    // console.log(myObj)
     res.send(myObj)
 
     try {
         const database = client.db('mbaDraft');
         const contacts = database.collection('contacts');
         contacts.insertOne(myObj)
+    } finally {
+        // Ensures that the client will close when you finish/error
+        client.close();
+    }
+})
+
+app.get('/getContacts', (req, res) => {
+
+    try {
+        const database = client.db('mbaDraft');
+        const contacts = database.collection('contacts').find();
+        console.log(contacts)
     } finally {
         // Ensures that the client will close when you finish/error
         client.close();
