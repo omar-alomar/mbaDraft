@@ -1,50 +1,41 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const mongoose = require('mongoose');
 
 const uri = "mongodb+srv://admin:admin@mbadraft.ipntxsb.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
+const { Contact } = require('./Contact')
 
-app.use(
-    cors({
-        origin: 'http://localhost:3000'
-    })
-)
+const app = express();
+
 
 app.use(express.json());
 
-var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
-
-    console.log("Example app listening at http://%s:%s", host, port)
+app.post('/addContact', async (req, res) => {
+    const newContact = new Contact({ ...req.body })
+    const insertedContact = await newContact.save()
+    return res.status(201).json(insertedContact)
 })
 
-app.post('/addContact', (req, res) => {
-    const myObj = req.body
-    // console.log(myObj)
-    res.send(myObj)
+// app.get('/getContacts', (req, res) => {
 
+
+// })
+
+const start = async () => {
+    app.use(
+        cors({
+            origin: 'http://localhost:3000'
+        })
+    )
     try {
-        const database = client.db('mbaDraft');
-        const contacts = database.collection('contacts');
-        contacts.insertOne(myObj)
-    } finally {
-        // Ensures that the client will close when you finish/error
-        client.close();
+        await mongoose.connect(uri);
+        app.listen(8081, () => console.log("Server started on port 8081"));
+    } catch (error) {
+        console.error(error);
+        process.exit(1);
     }
-})
+};
 
-app.get('/getContacts', (req, res) => {
+start();
 
-    try {
-        const database = client.db('mbaDraft');
-        const contacts = database.collection('contacts').find();
-        console.log(contacts)
-    } finally {
-        // Ensures that the client will close when you finish/error
-        client.close();
-    }
-})
