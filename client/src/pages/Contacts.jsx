@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import ContactCard from '../components/ContactCard';
 
 
 const Contacts = () => {
@@ -33,7 +34,7 @@ const Contacts = () => {
   }
 
   return (
-    <div className="contacts">
+    <div className="contacts mx-auto w-full">
       <form className="contacts__form" onSubmit={handleSubmit}>
         <label className="contacts__form__label">First name:
         <input className="contacts__form__input" type="text" onChange={(e) => setFname(e.target.value)}/></label>
@@ -51,6 +52,20 @@ const Contacts = () => {
       </form>
       <div className="contacts__cards">
       <button onClick={getContacts}>xxx</button>
+      </div>
+      <div className='inset-0 flex flex-col flex-wrap justify-evenly'>
+
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        <ContactCard name='test' tel='(777) 777-7777' email='test_test@gmail.com'/>
+        
       </div>
     </div>
 
