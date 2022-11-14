@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import ContactCard from '../components/ContactCard';
 import Modal from '../components/Modal';
+import Header from '../components/Header';
 
 
 const Contacts = () => {
@@ -36,6 +37,7 @@ const Contacts = () => {
 
   return (
     <div className="contacts mx-auto w-full">
+      <Header Text="Contacts" />
       <Modal buttonName="New contact...">
         <form className="contacts__form" onSubmit={handleSubmit}>
           <label className="contacts__form__label"><span className="contacts__form__span">First name:</span>

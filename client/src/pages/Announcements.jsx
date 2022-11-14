@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Header';
+
 
 const Announcements = () => {
   return (
-    <div className="announcements">Announcements</div>
+    <>
+      <Header Text='Announcements' />
+    </>
   )
 }
 

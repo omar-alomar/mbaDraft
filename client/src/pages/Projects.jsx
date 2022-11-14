@@ -4,9 +4,7 @@ import Header from '../components/Header'
 
 const Projects = () => {
   return (
-    <div className='w-full'>
       <Header Text='Projects' />
-    </div>
   )
 }
 
