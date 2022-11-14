@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .navbar {
     /* display: flex;
     flex-direction: column;
@@ -22,7 +27,13 @@
 .navbar__item-text {
     padding-left: 6px;
 }
-.navbar__item__profile-img {
-    height: 500px;
-    width: auto;
+
+@layer components {
+    .navbar__profile {
+        @apply my-5 ml-5 flex;
+    }
+    .navbar__profile__item-text {
+        @apply text-xl my-auto pl-2;
+    }
 }
+
