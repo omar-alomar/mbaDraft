@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Nunito': ['"Nunito"', '"sans-serif"']
+        'Nunito': ['"Nunito"', '"sans-serif"'],
+        'Fira': ['"Fira Sans"', '"sans-serif"']
       },
       colors: {
         mbaRed: '#6B293C',
