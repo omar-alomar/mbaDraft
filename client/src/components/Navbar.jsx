@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <div className="flex flex-column min-h-screen">
       <div className="navbar sm:w-80 md:w-60 lg:w-80 bg-mbaRed font-Nunito">
-        <NavProfile className="navbar__profile" />
+        <NavProfile />
             {Buttons.map((button, i) => {
               return <NavButton 
                       img={button.img()} 
