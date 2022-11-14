@@ -10,17 +10,21 @@
     }
 }
 
-
-
 .contacts__form {
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 
-.contacts__form__input,
 .contacts__form__label {
-    margin: 6px;
+    display: block;
+}
+
+.contacts__form__span {
+    display: inline-block;
+    text-align: left;
+    width: 100px;
 }
 
 .contacts__form__input {
@@ -28,7 +32,17 @@
 }
 
 .contacts__form__submit {
+    margin-top: 5px;
     border: 1px solid;
+    width: 100px;
+    margin-left: 180px;
+    background: #ffff;
+}
+
+.contacts__form__button{
+    margin: 20px;
+    border: 1px solid;
+    width: 150px;
 }
 
 .contacts__form__submit:hover {

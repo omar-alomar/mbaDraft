@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import ContactCard from '../components/ContactCard';
+import Modal from '../components/Modal';
 
 
 const Contacts = () => {
@@ -35,23 +36,26 @@ const Contacts = () => {
 
   return (
     <div className="contacts mx-auto w-full">
-      <form className="contacts__form" onSubmit={handleSubmit}>
-        <label className="contacts__form__label">First name:
-        <input className="contacts__form__input" type="text" onChange={(e) => setFname(e.target.value)}/></label>
+      <Modal buttonName="New contact...">
+        <form className="contacts__form" onSubmit={handleSubmit}>
+          <label className="contacts__form__label"><span className="contacts__form__span">First name:</span>
+          <input className="contacts__form__input" type="text" onChange={(e) => setFname(e.target.value)}/></label>
 
-        <label className="contacts__form__label">Last name:
-        <input className="contacts__form__input" type="text" onChange={(e) => setLname(e.target.value)}/></label>
+          <label className="contacts__form__label"><span className="contacts__form__span">Last name:</span>
+          <input className="contacts__form__input" type="text" onChange={(e) => setLname(e.target.value)}/></label>
 
-        <label className="contacts__form__label">Number:
-        <input className="contacts__form__input" type="tel" onChange={(e) => setTel(e.target.value)}/></label>
+          <label className="contacts__form__label"><span className="contacts__form__span">Number:</span>
+          <input className="contacts__form__input" type="tel" onChange={(e) => setTel(e.target.value)}/></label>
 
-        <label className="contacts__form__label">Email:
-        <input className="contacts__form__input" type="email" onChange={(e) => setEmail(e.target.value)}/></label>
+          <label className="contacts__form__label"><span className="contacts__form__span">Email:</span>
+          <input className="contacts__form__input" type="email" onChange={(e) => setEmail(e.target.value)}/></label>
 
-        <input type="submit" className="contacts__form__submit"></input>
-      </form>
+          <button type="submit" className="contacts__form__submit">Add contact</button>
+        </form>
+      </Modal>
+      
       <div className="contacts__cards">
-      <button onClick={getContacts}>xxx</button>
+      <button className="contacts__form__button"onClick={getContacts}>Get Contacts</button>
       </div>
       <div className='inset-0 flex flex-col flex-wrap justify-evenly'>
 
